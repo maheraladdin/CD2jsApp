@@ -2,9 +2,11 @@ import Svg, {Circle, G, Path} from "react-native-svg";
 import React from "react";
 import {Platform, TouchableOpacity, View} from "react-native";
 import * as ImagePicker from "expo-image-picker";
+import {useRouter} from "expo-router";
 
 const Gallery = (props) => {
 
+    const router = useRouter();
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -16,6 +18,8 @@ const Gallery = (props) => {
         if (!result.canceled) {
             props.setImage(result.assets[0].uri);
         }
+
+        router.push("./zresult");
     };
 
     return (

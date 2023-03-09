@@ -9,7 +9,7 @@ import ClipboardIcon from "../../components/clipboard";
 const ZResult = () => {
 
     useEffect(() => {
-        Clipboard.setStringAsync("Hello world");
+        // Clipboard.setStringAsync("Hello world");
     }, []);
 
     return (

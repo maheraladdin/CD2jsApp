@@ -60,7 +60,7 @@ const MyCamera = (props) => {
 
                     <TouchableOpacity
                         style={[styles.button]}
-                        onPress={async () =>  takePicture()}
+                        onPress={takePicture}
                     >
                         <Text style={styles.text}>PICTURE</Text>
                     </TouchableOpacity>

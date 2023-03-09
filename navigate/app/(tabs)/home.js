@@ -6,7 +6,7 @@ import TakePhoto from "../../components/takePhoto";
 import MyCamera from "../../components/camera";
 
 
-export default function Profile() {
+export default function Home() {
 
     // camera permission handler
     const [permission, requestPermission] = Camera.useCameraPermissions();

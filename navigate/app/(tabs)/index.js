@@ -6,7 +6,7 @@ import { useState } from "react";
 import Logo from "../../components/logo";
 
 
-export default function Home() {
+export default function index() {
 
   const router = useRouter();
   const [isConnected, setIsConnected] = useState(null);
@@ -21,7 +21,7 @@ export default function Home() {
           router.push("/wifiOff");
         }
         else if (isConnected === true) {
-          router.push("/profile");
+          router.push("/home");
         }
     },2000);
   }, [isConnected]);

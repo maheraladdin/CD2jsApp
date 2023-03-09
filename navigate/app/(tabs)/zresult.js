@@ -6,7 +6,7 @@ import Share from "../../components/share";
 import Home from "../../components/Home";
 import ClipboardIcon from "../../components/clipboard";
 
-const Setting = () => {
+const ZResult = () => {
 
     useEffect(() => {
         Clipboard.setStringAsync("Hello world");
@@ -35,7 +35,7 @@ const Setting = () => {
     );
 };
 
-export default Setting;
+export default ZResult;
 
 const styles = StyleSheet.create({
     contain: {

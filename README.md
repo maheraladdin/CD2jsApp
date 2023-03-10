@@ -58,21 +58,3 @@
     </tr>
 </table>
 
-## Install
-
-```sh
-npm i cd2js
-```
-
-## Usage
-
-```js
-const useCD2js = require('cd2js');
-
-// setData is a function that set data to state
-// you can find apiKey in https://ocr.space/ocrapi
-// OCREngine is a number that represent the OCR engine that you want to use
-
-useCD2js(imagePath, setData, apiKey, OCREngine);
-```
-

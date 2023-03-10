@@ -17,14 +17,14 @@ export default function index() {
   useEffect(() => {
     setTimeout(() => {
         // check if connected to internet
-        (async () => await getNetworkStateAsync())().then((result) => setIsConnected(result.isConnected));
+        (() => getNetworkStateAsync())().then((result) => setIsConnected(result.isConnected));
         if (isConnected === false) {
           router.push("/wifiOff");
         }
         else if (isConnected === true) {
           router.push("/home");
         }
-    },2000);
+    },1000);
   }, [isConnected]);
 
 

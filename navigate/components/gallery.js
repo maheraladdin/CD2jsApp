@@ -19,9 +19,8 @@ const Gallery = (props) => {
 
         if (!result.canceled) {
                 await cd2js('data:image/jpeg;base64,' + result.assets[0].base64);
+                router.push("./zresult");
         }
-
-        router.push("./zresult");
     };
 
     return (

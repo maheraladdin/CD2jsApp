@@ -1,6 +1,5 @@
 import React,{useEffect} from "react";
-import {View, TextInput, TouchableOpacity, Platform} from "react-native";
-import { SafeAreaView, StyleSheet,Dimensions } from "react-native";
+import {View, TextInput, TouchableOpacity, Platform ,SafeAreaView, StyleSheet,Dimensions} from "react-native";
 import * as Clipboard from 'expo-clipboard';
 import Share from "../components/share";
 import Home from "../components/Home";
@@ -52,7 +51,7 @@ const ZResult = () => {
                 {/* Home icon */}
                 <Home />
                 {/* clipboard icon */}
-                <TouchableOpacity onPress={() => Clipboard.setString(copiedText)}>
+                <TouchableOpacity onPress={() => Clipboard.setStringAsync(copiedText)}>
                     <ClipboardIcon />
                 </TouchableOpacity>
             </SafeAreaView>

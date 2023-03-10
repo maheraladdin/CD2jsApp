@@ -13,8 +13,6 @@ const cd2js = async (img) => {
     formData.append("isTable", "true");
     formData.append("OCREngine", "5");
 
-    // Clipboard.setStringAsync(JSON.parse(result).ParsedResults[0].ParsedText) &&
-
     await fetch("https://api.ocr.space/parse/image", {
         method: 'POST',
         headers: myHeaders,

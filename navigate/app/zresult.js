@@ -7,6 +7,7 @@ import Home from "../components/Home";
 import ClipboardIcon from "../components/clipboard";
 import * as Sharing from 'expo-sharing';
 import * as FileSystem from 'expo-file-system';
+import Colors from "../data/colorMode";
 
 
 const ZResult = () => {
@@ -32,7 +33,7 @@ const ZResult = () => {
 
 
     return (
-        <>
+        <View style={styles.container}>
             <View style={styles.textInputContainer}>
                 <TextInput
                     value={copiedText}
@@ -55,13 +56,17 @@ const ZResult = () => {
                     <ClipboardIcon />
                 </TouchableOpacity>
             </SafeAreaView>
-        </>
+        </View>
     );
 };
 
 export default ZResult;
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: Colors.main,
+    },
     contain: {
         flex: 1,
         alignItems: "flex-end",
@@ -77,12 +82,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         height: Dimensions.get("window").height - 140,
         width: Dimensions.get("window").width - 40,
-        backgroundColor: "rgba(255, 255, 255, 0.6)",
+        backgroundColor: Colors.output,
         fontWeight: "600",
-        borderColor: "#909090",
+        borderColor: Colors.border,
         borderStyle: "solid",
         borderWidth: 1,
-        color: "#000",
+        color: Colors.text,
         padding: 10,
         fontSize: 16,
         textAlignVertical: "top",

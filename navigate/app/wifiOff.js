@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import WifiOff from "../components/offline";
+import Colors from "../data/colorMode";
 
 export default function wifiOff() {
 
@@ -16,6 +17,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#F8F9FA",
+        backgroundColor: Colors.main,
     }
 });

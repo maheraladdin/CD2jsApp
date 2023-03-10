@@ -4,6 +4,7 @@ import {useEffect} from 'react';
 import {getNetworkStateAsync} from 'expo-network';
 import { useState } from "react";
 import Logo from "../components/logo";
+import Colors from "../data/colorMode";
 
 
 export default function index() {
@@ -39,6 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:  "#F8F9FA",
+    backgroundColor:  Colors.main,
   }
 });

@@ -4,6 +4,7 @@ import { Camera } from "expo-camera";
 import Gallery from "../components/gallery";
 import TakePhoto from "../components/takePhoto";
 import MyCamera from "../components/camera";
+import Colors from "../data/colorMode";
 
 
 export default function Home() {
@@ -46,30 +47,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "row",
+        backgroundColor: Colors.main,
     },
     gallery: {
       marginTop: 126,
     },
     takePhoto: {
         marginBottom: 126,
-    },
-    camera: {
-        flex: 1,
-    },
-    buttonContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: 'transparent',
-        margin: 64,
-    },
-    button: {
-        flex: 1,
-        alignSelf: 'flex-end',
-        alignItems: 'center',
-    },
-    text: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: 'white',
-    },
+    }
 });

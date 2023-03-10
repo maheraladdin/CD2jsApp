@@ -11,7 +11,7 @@ const cd2js = async (img) => {
     formData.append("base64Image", img);
     formData.append("scale", "true");
     formData.append("isTable", "true");
-    formData.append("OCREngine", "3");
+    formData.append("OCREngine", "5");
 
     // Clipboard.setStringAsync(JSON.parse(result).ParsedResults[0].ParsedText) &&
 

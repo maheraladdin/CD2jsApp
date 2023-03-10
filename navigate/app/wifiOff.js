@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import WifiOff from "../../components/offline";
+import WifiOff from "../components/offline";
 
 export default function wifiOff() {
 

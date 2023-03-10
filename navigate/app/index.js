@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import {useEffect} from 'react';
 import {getNetworkStateAsync} from 'expo-network';
 import { useState } from "react";
-import Logo from "../../components/logo";
+import Logo from "../components/logo";
 
 
 export default function index() {

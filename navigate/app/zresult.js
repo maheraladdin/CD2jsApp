@@ -1,10 +1,10 @@
 import React,{useEffect} from "react";
-import { View, TextInput} from "react-native";
-import { SafeAreaView, StyleSheet } from "react-native";
+import {View, TextInput, TouchableOpacity} from "react-native";
+import { SafeAreaView, StyleSheet,Dimensions } from "react-native";
 import * as Clipboard from 'expo-clipboard';
-import Share from "../../components/share";
-import Home from "../../components/Home";
-import ClipboardIcon from "../../components/clipboard";
+import Share from "../components/share";
+import Home from "../components/Home";
+import ClipboardIcon from "../components/clipboard";
 
 const ZResult = () => {
 
@@ -32,11 +32,15 @@ const ZResult = () => {
 
             <SafeAreaView style={styles.contain}>
                 {/* share icon */}
-                <Share />
+                <TouchableOpacity>
+                    <Share />
+                </TouchableOpacity>
                 {/* Home icon */}
                 <Home />
                 {/* clipboard icon */}
-                <ClipboardIcon />
+                <TouchableOpacity onPress={() => Clipboard.setString(copiedText)}>
+                    <ClipboardIcon />
+                </TouchableOpacity>
             </SafeAreaView>
         </>
     );
@@ -48,19 +52,18 @@ const styles = StyleSheet.create({
     contain: {
         flex: 1,
         alignItems: "flex-end",
-        justifyContent: "center",
+        justifyContent: "space-between",
         flexDirection: "row",
-        gap: 20,
-        padding: 20,
+        margin: 20,
     },
     textInputContainer: {
         alignSelf: "center",
-        marginTop: 20,
+        margin: 20,
     },
     textInput: {
-        // borderRadius: 10,
-        height: 320,
-        width: 300,
+        borderRadius: 10,
+        height: Dimensions.get("window").height - 140,
+        width: Dimensions.get("window").width - 40,
         backgroundColor: "rgba(255, 255, 255, 0.6)",
         fontWeight: "600",
         borderColor: "#909090",

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import {StyleSheet, View} from "react-native";
 import { Camera } from "expo-camera";
-import Gallery from "../../components/gallery";
-import TakePhoto from "../../components/takePhoto";
-import MyCamera from "../../components/camera";
+import Gallery from "../components/gallery";
+import TakePhoto from "../components/takePhoto";
+import MyCamera from "../components/camera";
 
 
 export default function Home() {

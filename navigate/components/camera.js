@@ -1,8 +1,11 @@
 import {Camera, CameraType,ImageType} from "expo-camera";
-import {Text, TouchableOpacity, View, StyleSheet, Platform} from "react-native";
+import {TouchableOpacity, View, StyleSheet, Platform} from "react-native";
 import React from "react";
 import {useRouter} from "expo-router";
 import cd2js from "../logic/CD2JS";
+import ArrowBack from "./arrowBack";
+import FlipCamera from "./flipCamera";
+import Lens from "./lens";
 
 const MyCamera = (props) => {
 
@@ -23,13 +26,13 @@ const MyCamera = (props) => {
             try {
                 let photo = await cameraRef.current.takePictureAsync({
                     allowsEditing: Platform.OS === "android" && true,
-                    quality: 1,
+                    quality: 0,
                     base64: true,
                     ImageType: ImageType.jpg,
                 });
-                await cd2js(`data:image/jpeg;base64,${photo.base64}`);
-                router.push('zresult');
                 props.setUseCamera(false);
+                await cd2js(`data:image/jpg;base64,${photo.base64}`);
+                router.push('zresult');
             } catch (e) {
                 console.error(e);
             }
@@ -41,31 +44,32 @@ const MyCamera = (props) => {
             <Camera style={styles.camera} type={type} ref={cameraRef}>
                 <View style={styles.buttonContainer}>
 
-                    {/* flip button */}
-
-                    <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
-                        <Text style={styles.text}>Flip</Text>
-                    </TouchableOpacity>
-
                     {/* cancel button */}
 
                     <TouchableOpacity
-                        style={styles.button}
                         onPress={() => {
                             props.setUseCamera(false);
                         }}
                     >
-                        <Text style={styles.text}>CANCEL</Text>
+                        <ArrowBack />
                     </TouchableOpacity>
 
-                     {/*take picture button*/}
+                    {/*take picture button*/}
 
                     <TouchableOpacity
-                        style={[styles.button]}
                         onPress={takePicture}
                     >
-                        <Text style={styles.text}>PICTURE</Text>
+                        <Lens />
                     </TouchableOpacity>
+
+                    {/* flip button */}
+
+                    <TouchableOpacity onPress={toggleCameraType}>
+                        <FlipCamera />
+                    </TouchableOpacity>
+
+
+
                 </View>
             </Camera>
         </View>
@@ -75,7 +79,6 @@ const MyCamera = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
     },
     camera: {
         flex: 1,
@@ -84,17 +87,9 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         backgroundColor: 'transparent',
-        margin: 64,
-    },
-    button: {
-        flex: 1,
-        alignSelf: 'flex-end',
-        alignItems: 'center',
-    },
-    text: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: 'white',
+        alignItems: 'flex-end',
+        justifyContent: 'space-between',
+        margin: 30,
     },
 });
 

@@ -1,5 +1,5 @@
 import React,{useEffect} from "react";
-import {View, TextInput, TouchableOpacity} from "react-native";
+import {View, TextInput, TouchableOpacity, Platform} from "react-native";
 import { SafeAreaView, StyleSheet,Dimensions } from "react-native";
 import * as Clipboard from 'expo-clipboard';
 import Share from "../components/share";
@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     textInputContainer: {
-        alignSelf: "center",
         margin: 20,
+        marginTop: Platform.OS === "android" ? 60 : 20,
     },
     textInput: {
         borderRadius: 10,
@@ -84,5 +84,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         color: "#000",
         padding: 10,
+        fontSize: 16,
+        textAlignVertical: "top",
     },
 });

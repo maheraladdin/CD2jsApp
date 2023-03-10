@@ -3,6 +3,7 @@ import React from "react";
 import {Platform, TouchableOpacity, View} from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import {useRouter} from "expo-router";
+import cd2js from "../logic/CD2JS";
 
 const Gallery = (props) => {
 
@@ -13,10 +14,11 @@ const Gallery = (props) => {
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: Platform.OS === "android" && true,
             quality: 1,
+            base64: true,
         });
 
         if (!result.canceled) {
-            props.setImage(result.assets[0].uri);
+                await cd2js('data:image/jpeg;base64,' + result.assets[0].base64);
         }
 
         router.push("./zresult");

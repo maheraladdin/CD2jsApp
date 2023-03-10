@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {StyleSheet, View} from "react-native";
 import { Camera } from "expo-camera";
 import Gallery from "../../components/gallery";
@@ -11,22 +11,8 @@ export default function Home() {
     // camera permission handler
     const [permission, requestPermission] = Camera.useCameraPermissions();
 
-    // image url handler
-    const [image, setImage] = useState(null);
-
     // camera state
     const [useCamera, setUseCamera] = useState(false);
-
-    useEffect(() => {
-
-        // print image url in console
-        console.log(image);
-    }, [image]);
-
-
-    useEffect(() => {
-        // image && ;
-    },[image]);
 
     if (!permission) {
         // Camera permissions are still loading
@@ -38,13 +24,13 @@ export default function Home() {
             {/* camera part */}
             {useCamera ? (
                     <>
-                        <MyCamera setUseCamera={setUseCamera} setImage={setImage} />
+                        <MyCamera setUseCamera={setUseCamera} />
                     </>
             ) : (
                 <>
                     <View style={styles.container}>
                             {/* gallery part */}
-                            <Gallery style={styles.gallery} setImage={setImage}/>
+                            <Gallery style={styles.gallery} />
                             {/* takePhoto part */}
                             <TakePhoto style={styles.takePhoto} permission={permission} requestPermission={requestPermission} setUseCamera={setUseCamera}/>
                     </View>

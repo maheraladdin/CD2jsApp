@@ -8,14 +8,21 @@ import ClipboardIcon from "../../components/clipboard";
 
 const ZResult = () => {
 
+    const [copiedText, setCopiedText] = React.useState('');
+
     useEffect(() => {
-        // Clipboard.setStringAsync("Hello world");
-    }, []);
+        (async () => {
+            const text = await Clipboard.getStringAsync();
+            setCopiedText(text);
+        })();
+    }, [copiedText]);
+
 
     return (
         <>
             <View style={styles.textInputContainer}>
                 <TextInput
+                    value={copiedText}
                     multiline={true}
                     scrollEnabled={true}
                     editable={false}
@@ -53,7 +60,7 @@ const styles = StyleSheet.create({
     textInput: {
         // borderRadius: 10,
         height: 320,
-        width: "100%",
+        width: 300,
         backgroundColor: "rgba(255, 255, 255, 0.6)",
         fontWeight: "600",
         borderColor: "#909090",

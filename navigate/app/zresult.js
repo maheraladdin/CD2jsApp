@@ -5,6 +5,9 @@ import * as Clipboard from 'expo-clipboard';
 import Share from "../components/share";
 import Home from "../components/Home";
 import ClipboardIcon from "../components/clipboard";
+import * as Sharing from 'expo-sharing';
+import * as FileSystem from 'expo-file-system';
+
 
 const ZResult = () => {
 
@@ -16,6 +19,16 @@ const ZResult = () => {
             setCopiedText(text);
         })();
     }, [copiedText]);
+
+    const ShareFile = async () => {
+        try {
+            let fileUri = FileSystem.documentDirectory + "output.js";
+            await FileSystem.writeAsStringAsync(fileUri, copiedText, { encoding: FileSystem.EncodingType.UTF8 });
+            await Sharing.shareAsync( fileUri);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
 
     return (
@@ -32,7 +45,7 @@ const ZResult = () => {
 
             <SafeAreaView style={styles.contain}>
                 {/* share icon */}
-                <TouchableOpacity>
+                <TouchableOpacity onPress={ShareFile}>
                     <Share />
                 </TouchableOpacity>
                 {/* Home icon */}

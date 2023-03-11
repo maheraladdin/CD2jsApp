@@ -1,5 +1,12 @@
 {
   "expo": {
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "userInterfaceStyle": "automatic"
+    },
+    "android": {
+      "userInterfaceStyle": "automatic"
+    },
     "scheme": "acme",
     "web": {
       "bundler": "metro"

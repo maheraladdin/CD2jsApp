@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {StyleSheet, View} from "react-native";
+import {Platform, StyleSheet, View} from "react-native";
 import { Camera } from "expo-camera";
 import Gallery from "../components/gallery";
 import TakePhoto from "../components/takePhoto";
@@ -33,7 +33,9 @@ export default function Home() {
                             {/* gallery part */}
                             <Gallery style={styles.gallery} />
                             {/* takePhoto part */}
-                            <TakePhoto style={styles.takePhoto} permission={permission} requestPermission={requestPermission} setUseCamera={setUseCamera}/>
+                        {Platform.OS !== "web" &&
+                            <TakePhoto style={styles.takePhoto} permission={permission}
+                                    requestPermission={requestPermission} setUseCamera={setUseCamera}/>}
                     </View>
                 </>
             )}
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.main,
     },
     gallery: {
-      marginTop: 126,
+      marginTop: Platform.OS !== "web" && 126,
     },
     takePhoto: {
         marginBottom: 126,

@@ -1,4 +1,4 @@
-import {Camera, CameraType,ImageType} from "expo-camera";
+import {Camera, CameraType} from "expo-camera";
 import {TouchableOpacity, View, StyleSheet, Platform} from "react-native";
 import React from "react";
 import {useRouter} from "expo-router";
@@ -28,10 +28,9 @@ const MyCamera = (props) => {
                     allowsEditing: Platform.OS === "android" && true,
                     quality: 0,
                     base64: true,
-                    ImageType: ImageType.jpg,
                 });
                 props.setUseCamera(false);
-                await cd2js(`data:image/jpg;base64,${photo.base64}`);
+                await cd2js(`data:image/jpeg;base64,${photo.base64}`);
                 router.push('zresult');
             } catch (e) {
                 console.error(e);

@@ -45,9 +45,10 @@ const ZResult = () => {
 
             <SafeAreaView style={styles.contain}>
                 {/* share icon */}
+                {Platform.OS !== "web" &&
                 <TouchableOpacity onPress={ShareFile}>
-                    <Share />
-                </TouchableOpacity>
+                    <Share/>
+                </TouchableOpacity>}
                 {/* Home icon */}
                 <Home />
                 {/* clipboard icon */}
@@ -69,9 +70,10 @@ const styles = StyleSheet.create({
     contain: {
         flex: 1,
         alignItems: "flex-end",
-        justifyContent: "space-between",
+        justifyContent: Platform.OS === "web" ? "center"  : "space-between",
         flexDirection: "row",
         margin: 20,
+        gap: Platform.OS === "web" ? 40 : 0,
     },
     textInputContainer: {
         margin: 20,
@@ -90,5 +92,5 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 16,
         textAlignVertical: "top",
-    },
+    }
 });

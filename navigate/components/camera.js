@@ -7,6 +7,7 @@ import ArrowBack from "./arrowBack";
 import FlipCamera from "./flipCamera";
 import Lens from "./lens";
 
+
 const MyCamera = (props) => {
 
     // camera back/front state
@@ -66,8 +67,6 @@ const MyCamera = (props) => {
                     <TouchableOpacity onPress={toggleCameraType}>
                         <FlipCamera />
                     </TouchableOpacity>
-
-
 
                 </View>
             </Camera>

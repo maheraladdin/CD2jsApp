@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
         gap: Platform.OS === "web" ? 40 : 0,
     },
     textInputContainer: {
+        width: Dimensions.get("window").width,
         margin: 20,
         marginTop: Platform.OS === "android" ? 60 : 20,
     },

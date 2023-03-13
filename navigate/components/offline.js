@@ -5,6 +5,7 @@ const Offline = (props) => {
 
     return (
         <View>
+            {/* offline icon in wifiOff activity */}
             <Svg xmlns="http://www.w3.org/2000/svg" width={228} height={228} {...props}>
                 <Circle data-name="Ellipse 7" cx={114} cy={114} r={114} fill="#e4a11b" />
                 <Path

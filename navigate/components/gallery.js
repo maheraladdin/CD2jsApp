@@ -7,9 +7,12 @@ import cd2js from "../logic/CD2JS";
 
 const Gallery = (props) => {
 
+    // router to navigate between activities
     const router = useRouter();
 
+    // choose an image from gallery
     const pickImage = async () => {
+        // result store the chosen image from gallery
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: Platform.OS === "android" && true,
@@ -17,14 +20,18 @@ const Gallery = (props) => {
             base64: true,
         });
 
+        // in case choosing image process 's not canceled
         if (!result.canceled) {
-                await cd2js('data:image/jpeg;base64,' + result.assets[0].base64);
-                router.push("./zresult");
+            // return javascript code form the class diagram image
+            await cd2js('data:image/jpeg;base64,' + result.assets[0].base64);
+            // go to zresult activity
+            router.push("./zresult");
         }
     };
 
     return (
         <View>
+            {/* gallery icon in home activity */}
             <TouchableOpacity onPress={pickImage}>
                 <Svg
                     xmlns="http://www.w3.org/2000/svg"

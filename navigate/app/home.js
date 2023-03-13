@@ -22,30 +22,31 @@ export default function Home() {
 
     return (
         <View style={styles.container}>
-            {/* camera part */}
+            {/* camera view */}
             {useCamera ? (
-                    <>
-                        <MyCamera setUseCamera={setUseCamera} />
-                    </>
+            <>
+                <MyCamera setUseCamera={setUseCamera} />
+            </>
             ) : (
-                <>
-                    <View style={styles.container}>
+            <>
+                {/* home view */}
+                <View style={styles.container}>
 
-                            {/* gallery part */}
-                            <Gallery style={styles.gallery} />
+                        {/* gallery part */}
+                        <Gallery style={styles.gallery} />
 
-                            {/* takePhoto part */}
-                            {Platform.OS !== "web" &&
-                                <TakePhoto
-                                    style={styles.takePhoto}
-                                    permission={permission}
-                                    requestPermission={requestPermission}
-                                    setUseCamera={setUseCamera}
-                                />
-                            }
+                        {/* takePhoto part */}
+                        {Platform.OS !== "web" &&
+                            <TakePhoto
+                                style={styles.takePhoto}
+                                permission={permission}
+                                requestPermission={requestPermission}
+                                setUseCamera={setUseCamera}
+                            />
+                        }
 
-                    </View>
-                </>
+                </View>
+            </>
             )}
         </View>
     );

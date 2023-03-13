@@ -4,6 +4,7 @@ const Logo = (props) => {
 
     return (
         <View>
+            {/* logo icon in index activity */}
             <Svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={228}

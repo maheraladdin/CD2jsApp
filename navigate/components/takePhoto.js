@@ -7,15 +7,17 @@ const TakePhoto = (props) => {
         <View>
             <TouchableOpacity
                 onPress={async () => {
-                    console.log("in pick camera");
+                    // request camera permission
                     if (!props.permission.granted) {
                         props.requestPermission();
                     }
+                    // start camera
                     if(props.permission.granted) {
                         props.setUseCamera(true);
                     }
                 }}
             >
+                {/* camera icon in home activity*/}
                 <Svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={126}

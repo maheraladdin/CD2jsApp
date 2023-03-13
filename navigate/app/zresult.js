@@ -11,20 +11,23 @@ import Colors from "../data/colorMode";
 
 const ZResult = () => {
 
+    // store text inside clipboard
     const [copiedText, setCopiedText] = React.useState('');
 
     useEffect(() => {
+        // get text from clipboard ,then store it
         (async () => {
             const text = await Clipboard.getStringAsync();
             setCopiedText(text);
         })();
     }, [copiedText]);
 
+    // store output javascript code inside output.js file ,then share it
     const ShareFile = async () => {
         try {
             let fileUri = FileSystem.documentDirectory + "output.js";
             await FileSystem.writeAsStringAsync(fileUri, copiedText, { encoding: FileSystem.EncodingType.UTF8 });
-            await Sharing.shareAsync( fileUri);
+            await Sharing.shareAsync(fileUri);
         } catch (e) {
             console.log(e);
         }
@@ -33,6 +36,7 @@ const ZResult = () => {
 
     return (
         <View style={styles.container}>
+            {/* text input to preview generated javascript code */}
             <View style={styles.textInputContainer}>
                 <TextInput
                     value={copiedText}
@@ -44,17 +48,21 @@ const ZResult = () => {
             </View>
 
             <SafeAreaView style={styles.contain}>
+
                 {/* share icon */}
                 {Platform.OS !== "web" &&
                 <TouchableOpacity onPress={ShareFile}>
                     <Share/>
                 </TouchableOpacity>}
+
                 {/* Home icon */}
                 <Home />
+
                 {/* clipboard icon */}
                 <TouchableOpacity onPress={() => Clipboard.setStringAsync(copiedText)}>
                     <ClipboardIcon />
                 </TouchableOpacity>
+
             </SafeAreaView>
         </View>
     );

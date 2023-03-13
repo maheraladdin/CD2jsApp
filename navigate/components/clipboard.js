@@ -5,6 +5,7 @@ import React from "react";
 const ClipboardIcon = (props) => {
     return (
         <View>
+            {/* save to clipboard icon in zresult activity */}
             <Svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={80}

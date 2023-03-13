@@ -1,5 +1,7 @@
 import { useColorScheme } from "react-native";
 
+// useColorScheme returns the system's appearance mode
+
 const Colors = {
     main: useColorScheme() === "dark" ? "#212529" : "#F8F9FA",
     border:  useColorScheme() === "dark" ? "#707070"  : "#909090",

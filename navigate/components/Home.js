@@ -7,6 +7,7 @@ const Home = (props) => {
     const router = useRouter();
     return (
         <View>
+            {/* home icon in zresult activity */}
             <TouchableOpacity
                 onPress={() => {
                     router.push("/home");

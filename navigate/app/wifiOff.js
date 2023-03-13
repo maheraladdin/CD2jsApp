@@ -3,8 +3,7 @@ import WifiOff from "../components/offline";
 import Colors from "../data/colorMode";
 
 export default function wifiOff() {
-
-
+    // this activity appears when no connection to internet
     return (
         <View style={styles.container}>
             <WifiOff />

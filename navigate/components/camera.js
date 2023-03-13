@@ -18,20 +18,27 @@ const MyCamera = (props) => {
 
     // camera reference
     const cameraRef = React.useRef(null);
+
+    // flip camera form back to front and vice versa
     function toggleCameraType() {
         setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
     }
 
+    // take a picture
     const takePicture = async () => {
         if (cameraRef) {
             try {
+                // take a picture
                 let photo = await cameraRef.current.takePictureAsync({
                     allowsEditing: Platform.OS === "android" && true,
                     quality: 0,
                     base64: true,
                 });
+                // close camera view
                 props.setUseCamera(false);
+                // start generating javascript code form image
                 await cd2js(`data:image/jpeg;base64,${photo.base64}`);
+                // go to zresult activity
                 router.push('zresult');
             } catch (e) {
                 console.error(e);
@@ -44,25 +51,24 @@ const MyCamera = (props) => {
             <Camera style={styles.camera} type={type} ref={cameraRef}>
                 <View style={styles.buttonContainer}>
 
-                    {/* cancel button */}
+                    {/* cancel button in camera view */}
 
                     <TouchableOpacity
-                        onPress={() => {
-                            props.setUseCamera(false);
-                        }}
+                        onPress={() =>
+                            // close camera view
+                            props.setUseCamera(false)
+                        }
                     >
                         <ArrowBack />
                     </TouchableOpacity>
 
-                    {/*take picture button*/}
+                    {/*take picture button in camera view */}
 
-                    <TouchableOpacity
-                        onPress={takePicture}
-                    >
+                    <TouchableOpacity onPress={takePicture}>
                         <Lens />
                     </TouchableOpacity>
 
-                    {/* flip button */}
+                    {/* flip button in camera view */}
 
                     <TouchableOpacity onPress={toggleCameraType}>
                         <FlipCamera />

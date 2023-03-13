@@ -16,7 +16,7 @@ export default function Home() {
     const [useCamera, setUseCamera] = useState(false);
 
     if (!permission) {
-        // Camera permissions are still loading
+    // Camera permissions are still loading
         return <View />;
     }
 
@@ -30,12 +30,20 @@ export default function Home() {
             ) : (
                 <>
                     <View style={styles.container}>
+
                             {/* gallery part */}
                             <Gallery style={styles.gallery} />
+
                             {/* takePhoto part */}
-                        {Platform.OS !== "web" &&
-                            <TakePhoto style={styles.takePhoto} permission={permission}
-                                    requestPermission={requestPermission} setUseCamera={setUseCamera}/>}
+                            {Platform.OS !== "web" &&
+                                <TakePhoto
+                                    style={styles.takePhoto}
+                                    permission={permission}
+                                    requestPermission={requestPermission}
+                                    setUseCamera={setUseCamera}
+                                />
+                            }
+
                     </View>
                 </>
             )}

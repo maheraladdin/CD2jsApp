@@ -33,12 +33,11 @@ export default function Home() {
                 <View style={styles.container}>
 
                         {/* gallery part */}
-                        <Gallery style={styles.gallery} />
+                        <Gallery />
 
                         {/* takePhoto part */}
                         {Platform.OS !== "web" &&
                             <TakePhoto
-                                style={styles.takePhoto}
                                 permission={permission}
                                 requestPermission={requestPermission}
                                 setUseCamera={setUseCamera}
@@ -59,11 +58,5 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         flexDirection: "row",
         backgroundColor: Colors.main,
-    },
-    gallery: {
-      marginTop: Platform.OS !== "web" && 126,
-    },
-    takePhoto: {
-        marginBottom: 126,
     }
 });

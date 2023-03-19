@@ -30,7 +30,9 @@ const Gallery = (props) => {
     };
 
     return (
-        <View>
+        <View style={{
+            height: 0,
+        }}>
             {/* gallery icon in home activity */}
             <TouchableOpacity onPress={pickImage}>
                 <Svg

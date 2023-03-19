@@ -4,7 +4,11 @@ import {TouchableOpacity, View} from "react-native";
 
 const TakePhoto = (props) => {
     return (
-        <View>
+        <View
+            style={{
+                height: 252,
+                }}
+        >
             <TouchableOpacity
                 onPress={async () => {
                     // request camera permission

@@ -100,6 +100,6 @@ const styles = StyleSheet.create({
         color: Colors.text,
         padding: 10,
         fontSize: 16,
-        textAlignVertical: "top",
+        verticalAlign: "top",
     }
 });

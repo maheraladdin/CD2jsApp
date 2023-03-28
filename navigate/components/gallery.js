@@ -31,7 +31,7 @@ const Gallery = (props) => {
 
     return (
         <View style={{
-            height: 0,
+            height: Platform.OS !== "web" && 0,
         }}>
             {/* gallery icon in home activity */}
             <TouchableOpacity onPress={pickImage}>

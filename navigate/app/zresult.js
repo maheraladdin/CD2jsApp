@@ -7,26 +7,26 @@ import ClipboardIcon from "../components/clipboard";
 import * as Sharing from 'expo-sharing';
 import * as FileSystem from 'expo-file-system';
 import Colors from "../data/colorMode";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ZResult = () => {
 
     // store text inside clipboard
-    const [copiedText, setCopiedText] = React.useState('');
+    const [text, setText] = React.useState('');
 
     useEffect(() => {
         // get text from clipboard ,then store it
         (async () => {
-            const text = await Clipboard.getStringAsync();
-            setCopiedText(text);
+            const text = await AsyncStorage.getItem("@js_code");
+            setText(text);
         })();
-    }, [copiedText]);
+    }, [text]);
 
     // store output javascript code inside output.js file ,then share it
     const ShareFile = async () => {
         try {
             let fileUri = FileSystem.documentDirectory + "output.js";
-            await FileSystem.writeAsStringAsync(fileUri, copiedText, { encoding: FileSystem.EncodingType.UTF8 });
+            await FileSystem.writeAsStringAsync(fileUri, text, { encoding: FileSystem.EncodingType.UTF8 });
             await Sharing.shareAsync(fileUri);
         } catch (e) {
             console.log(e);
@@ -39,7 +39,7 @@ const ZResult = () => {
             {/* text input to preview generated javascript code */}
             <View style={styles.textInputContainer}>
                 <TextInput
-                    value={copiedText}
+                    value={text}
                     multiline={true}
                     scrollEnabled={true}
                     editable={false}
@@ -59,7 +59,7 @@ const ZResult = () => {
                 <Home />
 
                 {/* clipboard icon */}
-                <TouchableOpacity onPress={() => Clipboard.setStringAsync(copiedText)}>
+                <TouchableOpacity onPress={() => Clipboard.setStringAsync(text)}>
                     <ClipboardIcon />
                 </TouchableOpacity>
 

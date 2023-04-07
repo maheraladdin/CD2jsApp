@@ -1,5 +1,5 @@
 import getJSCode from './getJSCode';
-import * as Clipboard from 'expo-clipboard';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const cd2js = async (img) => {
 
@@ -22,7 +22,7 @@ const cd2js = async (img) => {
         body: formData,
         redirect: 'follow'
     }).then(response => response.text())
-        .then(result => Clipboard.setStringAsync(getJSCode(JSON.parse(result).ParsedResults[0].ParsedText)))
+        .then(result => AsyncStorage.setItem("@js_code",getJSCode(JSON.parse(result).ParsedResults[0].ParsedText)))
         .catch(error => console.log('error', error));
 }
 

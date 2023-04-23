@@ -5,9 +5,13 @@ import Gallery from "../components/gallery";
 import TakePhoto from "../components/takePhoto";
 import MyCamera from "../components/camera";
 import Colors from "../data/colorMode";
+import {useRouter} from "expo-router";
 
 
 export default function Home() {
+
+    // router used to navigate to another page
+    const router = useRouter();
 
     // camera permission handler
     const [permission, requestPermission] = Camera.useCameraPermissions();
@@ -25,7 +29,7 @@ export default function Home() {
             {/* camera view */}
             {useCamera ? (
             <>
-                <MyCamera setUseCamera={setUseCamera} />
+                <MyCamera router={router} setUseCamera={setUseCamera} />
             </>
             ) : (
             <>

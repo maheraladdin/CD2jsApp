@@ -58,3 +58,10 @@
     </tr>
 </table>
 
+## Use case diagram
+
+<img src="cd2js_usecase_diagram.png" alt="use case diagram"/>
+
+## Sequence diagram
+
+<img src="cd2js_generate_javascript_code.png" alt="sequence diagram"/>

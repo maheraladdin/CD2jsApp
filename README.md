@@ -60,8 +60,32 @@
 
 ## Use case diagram
 
-<img src="cd2js_usecase_diagram.png" alt="use case diagram"/>
+<img src="cd2js_usecase_diagram.png" alt="use case diagram" style="width: 100%;"/>
 
 ## Sequence diagram
 
-<img src="cd2js_generate_javascript_code.png" alt="sequence diagram"/>
+<img src="cd2js_generate_javascript_code.png" alt="sequence diagram" style="width: 100%;"/>
+
+## Preview on web (dark mode)
+
+<img src="web.gif" alt="CD2js preview on IOS" style="width: 100%;">
+
+
+## Preview on mobile
+
+<article 
+    style = "
+                display: flex;
+                gap: 3rem;
+                justify-content: space-around;
+            "
+>
+    <section>
+        <h3>IOS (dark mode)</h3>
+        <img src="ios.gif" alt="CD2js preview on IOS" />
+    </section>
+    <section>
+        <h3>Android (light mode)</h3>
+        <img src="android.gif" alt="CD2js preview on Android" />
+    </section>
+</article>

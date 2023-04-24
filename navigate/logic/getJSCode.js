@@ -1,7 +1,5 @@
 const getJSCode = (text) => {
 
-    console.log(text)
-
     // fetch class name form recognized text
     const className = text
         .split("\n")

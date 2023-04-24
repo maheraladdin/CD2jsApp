@@ -2,6 +2,10 @@
 
 ![CD2js background](CD2js.gif)
 
+## Idea
+
+generate javascript code from uml class diagram
+
 ## simple example
 
 <img src="classDigramToJSCode.png" alt="turn class digram into javascript code"/>

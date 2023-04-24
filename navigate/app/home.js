@@ -37,7 +37,7 @@ export default function Home() {
                 <View style={styles.container}>
 
                         {/* gallery part */}
-                        <Gallery />
+                        <Gallery router={router}/>
 
                         {/* takePhoto part */}
                         {Platform.OS !== "web" &&

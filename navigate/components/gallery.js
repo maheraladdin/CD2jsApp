@@ -2,13 +2,9 @@ import Svg, {Circle, G, Path} from "react-native-svg";
 import React from "react";
 import {Platform, TouchableOpacity, View} from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import {useRouter} from "expo-router";
 import cd2js from "../logic/CD2JS";
 
 const Gallery = (props) => {
-
-    // router to navigate between activities
-    const router = useRouter();
 
     // choose an image from gallery
     const pickImage = async () => {
@@ -25,7 +21,7 @@ const Gallery = (props) => {
             // return javascript code form the class diagram image
             await cd2js('data:image/jpeg;base64,' + result.assets[0].base64);
             // go to zresult activity
-            router.push("./zresult");
+            props.router.push("./zresult");
         }
     };
 

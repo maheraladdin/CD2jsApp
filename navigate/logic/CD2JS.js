@@ -13,7 +13,7 @@ const cd2js = async (img) => {
     formData.append("base64Image", img);
     formData.append("scale", "true");
     formData.append("isTable", "true");
-    formData.append("OCREngine", "5");
+    formData.append("OCREngine", 2);
 
     // send the image in base64 format as a post request to response the recognized text and store it in the clipboard
     await fetch("https://api.ocr.space/parse/image", {

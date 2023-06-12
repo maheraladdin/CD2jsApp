@@ -5,7 +5,7 @@ const cd2js = async (img) => {
 
     // Header object stores the headers to the post request
     const myHeaders = new Headers();
-    myHeaders.append("apikey", "K81045846988957");
+    myHeaders.append("apikey", /* get api key from ocr space website */);
 
     // FormData object stores the body to the post request
     const formData = new FormData();
